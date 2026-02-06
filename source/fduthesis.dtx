@@ -5320,11 +5320,13 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 %    \begin{macrocode}
 \NewDocumentCommand \makecoverii { }
   {
-    \thispagestyle { empty }
-    \tl_set:Nn \thepage { B }
     \clist_if_empty:NTF \l_@@_info_instructors_clist
-      { \hbox:n { } }
-      { \UseInstance { fdu / cover } { cover-ii-default } }
+      { }
+      { 
+        \thispagestyle { empty }
+        \tl_set:Nn \thepage { B }
+        \UseInstance { fdu / cover } { cover-ii-default } 
+      }
   }
 %    \end{macrocode}
 % \end{macro}
