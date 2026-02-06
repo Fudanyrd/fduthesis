@@ -3858,10 +3858,11 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 %    \end{macrocode}
 % 设置章（chapter）、节（section）与小节（sub-section）标题样式。
 % 此处使用 \kvopt{fixskip}{true} 选项来抑制前后的多余间距。
+% \changes{v0.9a}{2026/02/06}{调整所有一级标题字号为小二号, 包括"摘要", 正文章节。}
 %    \begin{macrocode}
     chapter =
       {
-%<class>        format      = \huge \normalfont \sffamily \centering,
+%<class>        format      = \LARGE \normalfont \sffamily \centering,
 %<*class-en>
         format      = \centering,
         nameformat  = \LARGE \bfseries,
@@ -3926,10 +3927,14 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 % \begin{macro}{\@@_chapter_no_toc:n,\@@_chapter_no_toc:V}
 % 目录自身不出现在目录中，需特别处理。参考
 % \url{https://tex.stackexchange.com/a/1821}。
+%
+% \changes{v0.9a}{2026/02/06}{在目录前添加标题; 黑体、加粗、小二、居中;
+%  此处硬编码“目录”字体：黑体、二号、居中。
+% }
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_chapter_no_toc:n #1
   {
-    \chapter * {#1}
+    {\zihao{2} \normalfont \sffamily \begin{center} #1 \end{center}}
     \@@_sanitize_chapter_title:n {#1}
     \pdfbookmark [0] { \l_@@_tmpa_tl } { toc }
     \@@_chapter_header:n {#1}
