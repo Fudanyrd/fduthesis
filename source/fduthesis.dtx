@@ -5311,6 +5311,7 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 % \changes{v0.8}{2021/09/21}{\opt{info/instructors} 为空时不再显示指导小组
 %   成员名单。}
 % 指导小组成员名单（封二）。
+% 注: 复旦大学计算机学院本科毕业论文撰写规范不需此页.
 %    \begin{macrocode}
 \NewDocumentCommand \makecoverii { }
   {
@@ -5599,13 +5600,18 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 %
 % \begin{macro}{\@@_abstract_end:}
 % 摘要正文完成后，输出关键词列表和 CLC/JEL 分类号。
+% \changes{v0.9a}{2026/02/06}{适配复旦大学2026年本科毕业论文: \\
+%   各关键词之间用\textbf{逗号}分开; \\
+%   摘要内容后\textbf{空一行}打印“关键词”（\textbf{小三号黑体字}。
+% }
 %    \begin{macrocode}
 %<*class>
 \cs_new_protected:Npn \@@_abstract_end:
   {
+    \par
     \@@_keywords:nNn
-      { \sffamily \c_@@_name_keywords_tl \c_@@_fwid_colon_tl }
-      \l_@@_info_keywords_clist { \c_@@_fwid_semicolon_tl }
+      { \zihao{-3} \sffamily \c_@@_name_keywords_tl \c_@@_fwid_colon_tl }
+      \l_@@_info_keywords_clist { \c_@@_fwid_comma_tl }
     \tl_if_empty:NF \l_@@_info_clc_tl
       {
         \@@_clc_jel:nn
@@ -5619,12 +5625,17 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 %
 % \begin{macro}{\@@_abstract_en_end:}
 % 英文摘要中，如果指定了 JEL 分类号，则 CLC 分类号不再显示。
+% \changes{v0.9a}{2026/02/06}{适配复旦大学2026年本科毕业论文: \\
+%   各关键词之间用\textbf{逗号}分开; \\
+%   摘要内容后\textbf{空一行}打印“关键词”（\textbf{小三号黑体字}。
+% }
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_abstract_en_end:
   {
+    \par
     \@@_keywords:nNn
       { \bfseries \c_@@_name_keywords_en_tl \@@_quad: }
-      \l_@@_info_keywords_en_clist { ; ~ }
+      \l_@@_info_keywords_en_clist { , ~ }
     \tl_if_empty:NTF \l_@@_info_jel_tl
       {
         \tl_if_empty:NF \l_@@_info_clc_tl
