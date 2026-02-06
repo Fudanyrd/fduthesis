@@ -5197,15 +5197,18 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
   {
     \tl_if_eq:NnT \g_@@_thesis_type_tl { bachelor }
       {
-        \makecovertext{本科毕业论文（设计）}
+%<class>\makecovertext{本科毕业论文（设计）}
+%<class-en>\makecovertext{Bachelor's Thesis (Design)}
       }
     \tl_if_eq:NnT \g_@@_thesis_type_tl { master }
       {
-        \makecovertext{硕士学位论文}
+%<class>\makecovertext{硕士学位论文}
+%<class-en>\makecovertext{Master's Thesis}
       }
     \tl_if_eq:NnT \g_@@_thesis_type_tl { doctor }
       {
-        \makecovertext{博士学位论文}
+%<class>\makecovertext{博士学位论文}
+%<class-en>\makecovertext{Doctoral Dissertation}
       }
   }
 %    \end{macrocode}
