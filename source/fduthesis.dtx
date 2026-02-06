@@ -5153,16 +5153,15 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 %    \end{macrocode}
 % \end{macro}
 %
-% \changes{v0.9}{2023/02/18}{为封面添加 PDF 页码。}
-% \changes{v0.9a}{2026/02/06}{适配复旦大学2026年本科毕业论文封面。}
-%
-% \begin{macro}{\makecoveri}
-% 论文封面（封一）。
+% \begin{macro}{\makecovertext}
+% 调整封面字体为黑体。
 %    \begin{macrocode}
-
-\newcommand{\instructortype}{}
-\newcommand{\myunit}{}
 \newcommand{\makecovertext}[1]{\sffamily #1}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\makecoverline}
+% 辅助方法; 排版封面中的单列行。
+%    \begin{macrocode}
 \newcommand{\makecoverline}[1]{
   \makebox[0.4\textwidth][l]{
     \resizebox{!}{\tl_use:N \g_play_coverfontsize_tl}{
@@ -5170,6 +5169,12 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
       }
   }
 }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\makecoverline}
+% 辅助方法; 排版封面中的双列行。
+%    \begin{macrocode}
 \newcommand{\makecoverlinetwoside}[2]{
   \makebox[0.55\textwidth][l]{
     \resizebox{!}{\tl_use:N \g_play_coverfontsize_tl}{
@@ -5182,6 +5187,18 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
     }
   }
 }
+%    \end{macrocode}
+% \end{macro}
+%
+% \changes{v0.9}{2023/02/18}{为封面添加 PDF 页码。}
+% \changes{v0.9a}{2026/02/06}{适配复旦大学2026年本科毕业论文封面。}
+%
+% \begin{macro}{\makecoveri}
+% 论文封面（封一）。
+%    \begin{macrocode}
+
+\newcommand{\instructortype}{}
+\newcommand{\myunit}{}
 \newcommand{\thesistype}{
   \makecovertext{本科毕业论文（设计）}
 }
