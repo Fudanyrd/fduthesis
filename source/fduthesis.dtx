@@ -4604,6 +4604,20 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{info/unit}
+% 单位名称。
+%    \begin{macrocode}
+    unit        .tl_set:N      = \l_@@_info_unit_tl,
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{info/supervisor-title}
+% 导师职称。
+%    \begin{macrocode}
+    supervisor-title .tl_set:N = \l_@@_info_supervisor_title_tl,
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{info/school-id}
 % 学校代码。
 %    \begin{macrocode}
@@ -5220,10 +5234,6 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 % \begin{macro}{\makecoveri}
 % 论文封面（封一）。
 %    \begin{macrocode}
-
-\newcommand{\instructortype}{}
-\newcommand{\myunit}{}
-
 \NewDocumentCommand \makecoveri { }
   {
     \thispagestyle { empty }
@@ -5277,12 +5287,12 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
     \makecoverlinetwoside{
         指导老师： {\l__fdu_info_supervisor_tl}
     } {
-        职{\__common_skipwchar: }称： {\instructortype}
+        职{\__common_skipwchar: }称： {\l_@@_info_supervisor_title_tl}
     }
 
     \__common_makevskip:n {}
     \makecoverline{
-        单{\__common_skipwchar: }位： {\myunit}
+        单{\__common_skipwchar: }位： {\l_@@_info_unit_tl}
     }
 
     \__common_makevskip:n {}
