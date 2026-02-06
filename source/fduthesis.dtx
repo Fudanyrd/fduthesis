@@ -5190,6 +5190,27 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\@@_cover_headline:}
+% 封面大标题。
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_cover_headline:
+  {
+    \tl_if_eq:NnT \g_@@_thesis_type_tl { bachelor }
+      {
+        \makecovertext{本科毕业论文（设计）}
+      }
+    \tl_if_eq:NnT \g_@@_thesis_type_tl { master }
+      {
+        \makecovertext{硕士学位论文}
+      }
+    \tl_if_eq:NnT \g_@@_thesis_type_tl { doctor }
+      {
+        \makecovertext{博士学位论文}
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \changes{v0.9}{2023/02/18}{为封面添加 PDF 页码。}
 % \changes{v0.9a}{2026/02/06}{适配复旦大学2026年本科毕业论文封面。}
 %
@@ -5199,9 +5220,6 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 
 \newcommand{\instructortype}{}
 \newcommand{\myunit}{}
-\newcommand{\thesistype}{
-  \makecovertext{本科毕业论文（设计）}
-}
 
 \NewDocumentCommand \makecoveri { }
   {
@@ -5222,7 +5240,7 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 
     \vskip12pt
     \par{\center
-        \resizebox{0.8\textwidth}{!}{\thesistype}
+        \resizebox{0.8\textwidth}{!}{\@@_cover_headline:}
         \endcenter
     }
 
