@@ -9,6 +9,8 @@ COPY /Y "..\docs\example-image.png"                 .
 COPY /Y "..\source\fduthesis.dtx"                   .
 COPY /Y "..\source\fduthesis-doc.dtx"               .
 COPY /Y "..\source\fduthesis-logo.dtx"              .
+COPY /Y "..\source\fdlogo-1.png"                    .
+COPY /Y "..\source\fdlogo-2.png"                    .
 COPY /Y "..\testfiles\support\fudan-emblem.pdf"     .
 COPY /Y "..\testfiles\support\fudan-emblem-new.pdf" .
 COPY /Y "..\testfiles\support\fudan-name.pdf"       .
