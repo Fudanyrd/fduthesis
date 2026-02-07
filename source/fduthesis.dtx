@@ -3861,7 +3861,7 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 \cs_new_protected:Npn \@@_make_title:
   {
     \begin { center }
-      {\zihao{-2} \normalfont \sffamily \l_@@_info_title_tl}
+      {\zihao{-2} \bfseries \sffamily \l_@@_info_title_tl}
     \end { center }
     \vskip20pt
   }
@@ -3956,7 +3956,7 @@ Copyright (C) 2017&ndash;2024 by Xiangdong Zeng <xdzeng96@gmail.com>.
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_chapter_no_toc:n #1
   {
-    {\zihao{2} \normalfont \sffamily \begin{center} #1 \end{center}}
+    {\zihao{2} \bfseries \sffamily \begin{center} #1 \end{center}}
     \@@_sanitize_chapter_title:n {#1}
     \pdfbookmark [0] { \l_@@_tmpa_tl } { toc }
     \@@_chapter_header:n {#1}
